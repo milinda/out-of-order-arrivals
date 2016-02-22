@@ -48,7 +48,7 @@ constraints it enforced on the implementation.
 
 To overcome problems inherent in in order processing, techniques that embrace out of order arrivals has proposed
 [@Li:OOP; @akidau:millwheel; @Srivastava:FTM; @Tucker:EPS; @Krishnamurthy:CAO]. For example, solutions described in
-[@Li:OOP] and [@@akidau:millwheel] uses punctuations to communicate the stream progress while [@Krishnamurthy:CAO] computes
+[@Li:OOP] and [@akidau:millwheel] uses punctuations to communicate the stream progress while [@Krishnamurthy:CAO] computes
 partial results over sub-streams parallely and partial results are combined to generate final results.
 
 In this paper we discuss existing work on handling out-of-order arrivals in stream querying systems. Section [#Challenges]
