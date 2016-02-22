@@ -1,0 +1,71 @@
+Title       : Handling Out-of-Order Arrivals in Streaming SQL Systems: A Survey
+Author      : Milinda Pathirage
+Affiliation : School of Informatics and Computing, Indiana University
+Bib         : bibliography
+Doc Class   : [nocopyrightspace,preprint]llncs.cls
+Colorizer   : kokax.json
+Logo        : False
+
+[TITLE]
+
+~ Abstract
+Stream processing enables faster decision making and reduces response times by processing data on arrival. A data stream
+is an unbounded sequence of tuples, often logically ordered by time. But at internet scale, these streams are often
+arrives out-of-order with respect to the creation time and vaious kinds of disruptions occurr during the stream
+delivery. So employing mechanisms to handle out-of-order arrivals and stream distruptions are important. This paper
+explores existing work on out-of-order arrival handling in stream processing systems.
+~
+
+# Introduction {#sec-intro}
+Due to unbounded and out-of-order (with respect to the creation time) nature of streams, streaming query processing is
+an interesting topic. Certain requirements [@Golab:issues] such as time-based queries,
+non-blocking operators, long-running continuous query execution, resource, performance and latency constraints make
+implementing streaming query systems challenging in precense of out-of-order arrivlas.
+
+Often, real world uses of streaming SQL involves time-based queries varying from windowed aggreations to windowed joins.
+Reasons for this are two fold. Organisations utilize stream processing and streaming SQL often to monitor, analyze and
+respond to things happened in recent past. Definition of recent past may vary based on application. Then, due to
+possibly unbounded nature of data streams, windowing is used as a mechanism to bound the computation to limited set of
+tuples from data streams. Windowing enables execution of blocking relational operators such as joins and
+aggregations over data steams.
+
+In real world, data streams are generated often at remote locations such as remote sensing equipments, IoT devices,
+mobile devices and application service layers, etc. and they are delivered for storage and processing nodes via network.
+Due to distributed nature of this ecosystems, tuple arrivals can be out-of-order with respect to creation time and
+multiple streams may be out of sync with respect to time domain. Because of this streaming SQL systems must employ
+mechanisms to handle these scenarios to provide correct results (or results with some error rate guarauntees) to
+end user.
+
+According to [@Li:OOP], most of the early work
+[@Abadi:Aurora; @Arasu:CQL; @Cranor:Gigascope; @Ding:EWJ; @Hammad:OIE; @Hammad:SSW] on stream querying assumed in
+order arrivals, or enforced order. And query operators discussed in above mentioned papers required to maintain
+the order of input streams. These type stream query processing widely reffered to as in order processing, limits the
+flexibility of stream query engine implementation and incur significant performance penalties due to order maintenance
+techniques involved. So, in order processing systems are not a goo fit for modern stream uqerying systems that needs
+to handle massive amounts of streaming data. Also to cater scalability needs of modern applications, streams are often
+partitioned before processing and in order processing can have a negative effect in these type of settings due to
+constraints it enforced on the implementation.
+
+To overcome problems inherent in in order processing, techniques that embrace out of order arrivals has proposed
+[@Li:OOP; @akidau:millwheel; @Srivastava:FTM; @Tucker:EPS; @Krishnamurthy:CAO]. For example, solutions described in
+[@Li:OOP] and [@@akidau:millwheel] uses punctuations to communicate the stream progress while [@Krishnamurthy:CAO] computes
+partial results over sub-streams parallely and partial results are combined to generate final results.
+
+In this paper we discuss existing work on handling out-of-order arrivals in stream querying systems. Section [#Challenges]
+ dicusses challenges and importance of handling out-of-order arrivals. Then Section [#Handling] presents and evaluate
+ existing solutions. Section [#Partitioned] discuss out-of-order arrivals handling with respect to partitioned stream
+ querying systems like SamzaSQL. Section [#Conclusions] conclude the paper after discussing open problems in Section [#Handling].
+
+# Importants, Challenges and Requirements of Handling Out-of-Order Arrivals  { #Challenges }
+
+# Handling Out-of-Order Arrivals { #Handling }
+
+# Out-of-Order Arrivals in Partitioned Stream Querying Systems { #Partitioned }
+
+# Open Problems { #Open }
+
+# Conclusions { #Conclusions }
+
+
+
+[BIB]
