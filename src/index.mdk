@@ -5,6 +5,12 @@ Bib         : bibliography
 Doc Class   : [nocopyrightspace,preprint]llncs.cls
 Colorizer   : kokax.json
 Logo        : False
+Script      : custom-font.js
+
+.madoko {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+}
 
 [TITLE]
 
