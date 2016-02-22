@@ -8,7 +8,7 @@
   <title>Handling Out-of-Order Arrivals in Streaming SQL Systems: A Survey</title>
   <style type="text/css"  class="link">
   /*# sourceURL=madoko.css */
-
+  
   .madoko .toc>.tocblock .tocblock .tocblock {
     margin-left: 2.25em;
   }
@@ -54,7 +54,7 @@
     width: 50%;
     text-align: left;
   }
-  .madoko .footnote {
+  .madoko .footnote { 
     margin-left: 1em;
   }
   .madoko .footnote-before {
@@ -140,9 +140,9 @@
       list-style-type: none !important;
   }
   .madoko ul.list-style-type-dash > li:before {
-      content: "\2013";
+      content: "\2013"; 
       position: absolute;
-      margin-left: -1em;
+      margin-left: -1em; 
   }
   .madoko table.madoko {
     border-collapse: collapse;
@@ -206,14 +206,14 @@
   .madoko .symbol {
     font-family: "Segoe UI Symbol", Symbola, serif;
   }
-  body.madoko {
-    -webkit-text-size-adjust: 100%;
+  body.madoko {  
+    -webkit-text-size-adjust: 100%;       
     text-rendering: optimizeLegibility;
   }
   body.madoko {
-    max-width: 88ex;
+    max-width: 88ex; 
     margin: 1em auto;
-    padding: 0em 2em;
+    padding: 0em 2em;  
   }
   body.preview.madoko {
     padding: 0em 1em;
@@ -221,30 +221,30 @@
   .madoko p {
     text-align: justify;
   }
-  .madoko h1, .madoko h2, .madoko h3, .madoko h4 {
-    margin-top: 1.22em;
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
+    margin-top: 1.22em; 
     margin-bottom: 1ex;
   }
-  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  {
-    margin-top: 1ex;
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
+    margin-top: 1ex;    
   }
-  .madoko h5, .madoko h6 {
+  .madoko h5, .madoko h6 { 
     margin-top: 1ex;
     font-size: 1em;
   }
-  .madoko h5 {
+  .madoko h5 { 
     margin-bottom: 0.5ex;
   }
   .madoko h5 + p {
     margin-top: 0.5ex;
   }
-  .madoko h6 {
+  .madoko h6 { 
     margin-bottom: 0pt;
   }
   .madoko h6 + p {
     margin-top: 0pt;
   }
-  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt,
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
   .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
     font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
     font-size: 0.85em;
@@ -275,15 +275,15 @@
   }
   @media only screen and (max-device-width:1024px) {
     body.madoko {
-      padding: 0em 0.5em;
+      padding: 0em 0.5em;    
     }
     .madoko li {
       text-align: left;
     }
   }
-
+  
     </style>
-
+  
   </head>
 <body class="madoko">
 
@@ -349,11 +349,11 @@ Akidau, Balikov, Bekiroglu, Chernyak, Haberman, Lax, et al., 2013" class="bibref
 Krishnamurthy, Franklin, Davis, Farina, Golovko, Li, and Thombre, 2010" class="bibref localref" style="target-element:bibitem"><span class="cite-number">9</span></a>]</span><span data-line="51"></span> computes
 partial results over sub-streams parallely and partial results are combined to generate final results.
 </p>
-<p class="p indent" data-line="54"><span data-line="54"></span>In this paper we discuss existing work on handling out-of-order arrivals in stream querying systems. Section<span data-line="54"></span>&nbsp;<a href="#challenges" title="2.&#8194;Importants, Challenges and Requirements of Handling Out-of-Order Arrivals" class="localref" style="target-element:h1"><span class="heading-label">2</span></a><span data-line="54"></span>
+<p class="p indent" data-line="54"><span data-line="54"></span>In this paper we discuss existing work on handling out-of-order arrivals in stream querying systems. Section<span data-line="54"></span>&nbsp;<a href="#challenges" title="2.&#8194;Importance, Challenges and Requirements of Handling Out-of-Order Arrivals" class="localref" style="target-element:h1"><span class="heading-label">2</span></a><span data-line="54"></span>
  dicusses challenges and importance of handling out-of-order arrivals. Then Section<span data-line="55"></span>&nbsp;<a href="#handling" title="3.&#8194;Handling Out-of-Order Arrivals" class="localref" style="target-element:h1"><span class="heading-label">3</span></a><span data-line="55"></span> presents and evaluate
  existing solutions. Section<span data-line="56"></span>&nbsp;<a href="#partitioned" title="4.&#8194;Out-of-Order Arrivals in Partitioned Stream Querying Systems" class="localref" style="target-element:h1"><span class="heading-label">4</span></a><span data-line="56"></span> discuss out-of-order arrivals handling with respect to partitioned stream
  querying systems like SamzaSQL. Section<span data-line="57"></span>&nbsp;<a href="#conclusions" title="6.&#8194;Conclusions" class="localref" style="target-element:h1"><span class="heading-label">6</span></a><span data-line="57"></span> conclude the paper after discussing open problems in Section<span data-line="57"></span>&nbsp;<a href="#handling" title="3.&#8194;Handling Out-of-Order Arrivals" class="localref" style="target-element:h1"><span class="heading-label">3</span></a><span data-line="57"></span>.
-</p><h2 id="challenges" class="h1" data-line="59" data-heading-depth="1" style="display:block"><span data-line="59"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="59"></span>Importants, Challenges and Requirements of Handling Out-of-Order Arrivals</h2><h2 id="handling" class="h1" data-line="61" data-heading-depth="1" style="display:block"><span data-line="61"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="61"></span>Handling Out-of-Order Arrivals</h2><h2 id="partitioned" class="h1" data-line="63" data-heading-depth="1" style="display:block"><span data-line="63"></span><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span><span data-line="63"></span>Out-of-Order Arrivals in Partitioned Stream Querying Systems</h2><h2 id="open" class="h1" data-line="65" data-heading-depth="1" style="display:block"><span data-line="65"></span><span class="heading-before"><span class="heading-label">5</span>.&#8194;</span><span data-line="65"></span>Open Problems</h2><h2 id="conclusions" class="h1" data-line="67" data-heading-depth="1" style="display:block"><span data-line="67"></span><span class="heading-before"><span class="heading-label">6</span>.&#8194;</span><span data-line="67"></span>Conclusions</h2>
+</p><h2 id="challenges" class="h1" data-line="59" data-heading-depth="1" style="display:block"><span data-line="59"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="59"></span>Importance, Challenges and Requirements of Handling Out-of-Order Arrivals</h2><h2 id="handling" class="h1" data-line="61" data-heading-depth="1" style="display:block"><span data-line="61"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="61"></span>Handling Out-of-Order Arrivals</h2><h2 id="partitioned" class="h1" data-line="63" data-heading-depth="1" style="display:block"><span data-line="63"></span><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span><span data-line="63"></span>Out-of-Order Arrivals in Partitioned Stream Querying Systems</h2><h2 id="open" class="h1" data-line="65" data-heading-depth="1" style="display:block"><span data-line="65"></span><span class="heading-before"><span class="heading-label">5</span>.&#8194;</span><span data-line="65"></span>Open Problems</h2><h2 id="conclusions" class="h1" data-line="67" data-heading-depth="1" style="display:block"><span data-line="67"></span><span class="heading-before"><span class="heading-label">6</span>.&#8194;</span><span data-line="67"></span>Conclusions</h2>
 <div class="bibl" data-line="71;..//index-bib.bbl.mdk:1" style="bbl-file:..//index-bib.bbl.mdk"><h2 id="sec-references" class="clearnum h1 heading-references" data-line="71;..//index-bib.bbl.mdk:2" data-heading-depth="1" style="display:block"><span data-line="71;..//index-bib.bbl.mdk:2"></span>References</h2>
 <div class="bibliography bib-numeric" data-hanging-indent="0" data-cite-style="numeric:&#39;[&#39;,&#39;]&#39;,&#39;, &#39;" data-style="madoko-numeric" data-line="71;..//index-bib.bbl.mdk:3" style="bibstyle:madoko-numeric">
 <div id="abadi:aurora" class="bibitem" data-cite-year="2003" data-cite-authors="Abadi et al." data-cite-authors-long="Abadi, Carney, &#199;etintemel, Cherniack, Convey, Lee, et al." data-cite-label="1" data-line="bibliography.bib:49" style="text-indent:-2rem;margin-left:2rem;searchterm:Aurora%3A%20A%20New%20Model%20and%20Architecture%20for%20Data%20Stream%20Management%20Abadi%2C%20Carney%2C%20%26Ccedil%3Betintemel%2C%20Cherniack%2C%20Convey%2C%20Lee%2C%20et%20al.%2C%202003;bibitem-label:\5C [1\5C ]"><span class="bibitem-before" style="padding-right:0.5em;display: inline-block; width:calc(2rem - 0.5em);display: inline-block; text-align:right;font-size:90%">[1]</span>Daniel J.&#160;Abadi, Don Carney, Ugur &#199;etintemel, Mitch Cherniack, Christian Convey, Sangdon Lee, Michael Stonebraker, Nesime Tatbul, and Stan Zdonik. &#8220;Aurora: A New Model and Architecture for Data Stream Management.&#8221; <em class="em-low1">The VLDB Journal</em> 12 (2). Springer-Verlag New York, Inc., Secaucus, NJ, USA: 120–139. Aug. 2003. doi:<a href="https://dx.doi.org/10.1007/s00778-003-0095-z" class="bib-doi">10.1007/s00778-003-0095-z</a>.&nbsp;<a href="http://www.bing.com/search?q=Aurora%3A%20A%20New%20Model%20and%20Architecture%20for%20Data%20Stream%20Management%20Abadi%2C%20Carney%2C%20%26Ccedil%3Betintemel%2C%20Cherniack%2C%20Convey%2C%20Lee%2C%20et%20al.%2C%202003" class="bibsearch">&#128270;</a></div>

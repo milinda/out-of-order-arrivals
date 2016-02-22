@@ -56,7 +56,7 @@ In this paper we discuss existing work on handling out-of-order arrivals in stre
  existing solutions. Section [#Partitioned] discuss out-of-order arrivals handling with respect to partitioned stream
  querying systems like SamzaSQL. Section [#Conclusions] conclude the paper after discussing open problems in Section [#Handling].
 
-# Importants, Challenges and Requirements of Handling Out-of-Order Arrivals  { #Challenges }
+# Importance, Challenges and Requirements of Handling Out-of-Order Arrivals  { #Challenges }
 
 # Handling Out-of-Order Arrivals { #Handling }
 
