@@ -84,10 +84,55 @@ often be out-of-order with respect to *query timestamp*, other real world data s
 will behave same with respect to event creation time mainly due to clock skews, network delays, node failures, etc.
 
 In a streaming SQL implementation, filter and project operators are order independent and can ignore the order of
-the stream. But time-based window aggregate and windowed join operators are order dependent. Below we discuss challenges
-and requirements of handling out-of-order arrivals in window aggregates [[#wa-challenges]] and windowed joins [[#wj-challenges]].
+the stream. But time-based window aggregate and windowed join operators are order dependent. Below, we discuss how
+out-of-order arrivlas and un-synced streams effect window aggregates [[#wa-challenges]] and
+windowed joins [[#wj-challenges]]. We also discuss basic requirements for out-of-order arrival and un-sync stream handling
+algorithms.
+
+We are using following streams to describe different scenarios.
+
+* ```Orders(offset, rowtime, id, productId, units)``` - *offset* is field added by Kafka which indicate the message
+position in a partition
+* ```Shipments(offset, rowtime, id, cost)``` - *offset* has the same meaning as above. It is not a property of
+actual message, rather field introduced by the system.
+
+*Please note that all the mentions of streaming SQL in this paper refers to Apache Calcite's streaming SQL specification [@calcite:streamingsql].*
+
+## Window Types
+
+First, we define different window types commonly used in stream queries. There are three main types of windows
+(tumbling, hopping and sliding) defined generally in streaming SQL. In addition to these three types there is
+an another windowing mechanism known as *session* windows.
+
+### Tumbling Windows
+
+Tumbling windows are fixed size non-overlapping contiguous time internals. Tumbling window operators emit aggregation
+results at the end of the window. So the emit internal is same as window size.
+
+![tumbling]
+
+[tumbling]: fig/tumbling.png { width: 500px }
+
+### Hopping Windows
+
+Hopping windows are fixed size overlapping time intervals. Hopping window is defined by window size and hop (or step) size.
+Hopping window implementations will also define *alignment* property which allows to start window in a middle of time unit.
+
+![hopping]
+
+[hopping]: fig/hopping.png { width: 500px }
+
+
+
+### Sliding Windows
+
+
+### Session Windows
+
 
 ## Window Aggregates { #wa-challenges }
+
+
 
 ## Windowed Joins { #wj-challenges }
 
